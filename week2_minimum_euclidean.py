@@ -15,12 +15,20 @@ def findMinimumDistance(distances):
 
 # main function: the points are defined and the distances are calculated
 def main():
-    points = [(1, 0), (4, 4), (8, 6), (2, 8), (6, 1)]
+    num_points = int(input("Enter the number of points: "))
+    points = []
+    for _ in range(num_points):
+        point = tuple(map(int, input("Enter point (x,y): ").split(',')))
+        points.append(point)
+
+    print("Points entered:", points)
+
     distances = []
     for i in range(len(points)):
         for j in range(i+1, len(points)):
             distances.append(euclideanDistance(points[i], points[j]))
-    print(findMinimumDistance(distances))
+
+    print("Minimum Euclidean Distance:", findMinimumDistance(distances))
 
 # main function call
 if __name__ == "__main__":
